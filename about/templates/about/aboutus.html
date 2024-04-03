@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="full-width-row">
+  <div class="image-container">
+    <img src="{% static 'images/meals.jpeg' %}" />
+  </div>
+  <div class="content-container">
+    <!-- Title goes between these h2 tags -->
+    <h2>{{ about.title }}</h2>
+    <!-- Content goes directly underneath this -->
+    {{ about.content | safe }}
+  </div>
+</div>
+
+<div style="text-align: center; width: 100%; margin-top: 370px"> 
+  <!-- Updated on field goes in here -->
+  <em>Updated on: {{ about.updated_on }}</em>
+</div>
+
+{% endblock content %}

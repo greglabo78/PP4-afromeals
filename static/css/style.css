@@ -155,3 +155,21 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+  .full-width-row {
+    display: flex;
+    width: 100%;
+  }
+  .image-container {
+    flex: 0 0 33.3333%; /* Do not grow, do not shrink, take up one-third of the space */
+    max-width: 33.3333%;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .content-container {
+    flex: 0 0 66.6667%; /* Do not grow, do not shrink, take up the remaining space */
+    max-width: 66.6667%;
+  }
