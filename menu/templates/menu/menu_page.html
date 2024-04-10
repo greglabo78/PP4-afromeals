@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h2>Meal Menu</h2>
+  <ul>
+    {% for meal in meal_list %}
+      <li>{{ meal.food_name }} - ${{ meal.price }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Drink Menu</h2>
+  <ul>
+    {% for drink in drink_list %}
+      <li>{{ drink.drink_name }} - ${{ drink.price }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
