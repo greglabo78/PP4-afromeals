@@ -156,20 +156,85 @@ body {
     color: rgb(222, 146, 168);
 }
 
-  .full-width-row {
-    display: flex;
-    width: 100%;
-  }
+/* About us Page------------------------------- */
+
+  
   .image-container {
-    flex: 0 0 33.3333%; /* Do not grow, do not shrink, take up one-third of the space */
-    max-width: 33.3333%;
+    width: 100%;
+    overflow: hidden;
+    height: 500px;
   }
   .image-container img {
     width: 100%;
     height: auto;
     display: block;
+    object-fit: cover;
   }
   .content-container {
-    flex: 0 0 66.6667%; /* Do not grow, do not shrink, take up the remaining space */
-    max-width: 66.6667%;
-  }
+    flex-grow: 1; 
+    flex-shrink: 1; 
+    flex-basis: 0; 
+    max-width: 100%; 
+}
+
+
+/* Menu Page------------------------------------------*/
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items:normal;
+    width: 100%;
+}
+
+.menu-image-container {
+    width: 100%; 
+    overflow: hidden;
+    height: 500px;
+
+}
+
+.menu-image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    
+}
+
+.meal-header {
+    margin-top: 80vh; /* Adjust as needed to center the header in the page */
+    transform: translateY(-1900%) translateX(-0%); /* Adjust vertical positioning */
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: space-between; /* Aligns one dropdown to the left, the other to the right */
+    position: relative; 
+    width: 100%; 
+  
+}
+
+.dropdown {
+    position: relative; /* Keep as relative or static if flex sizing is used */
+    flex: 1; 
+    margin: 0 10px; /
+}
+
+#mealMenuDropdown, #drinkMenuDropdown {
+    position: absolute; 
+    top: -700px;
+}
+
+#mealMenuDropdown {
+    left: 10%; /* Aligns to the left */
+    width: 30%;
+}
+
+#drinkMenuDropdown {
+    right: 10%; /* Aligns to the right */
+    width: 30%;
+    
+    
+}

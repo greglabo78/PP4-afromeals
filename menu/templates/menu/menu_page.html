@@ -1,19 +1,38 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container">
-  <h2>Meal Menu</h2>
-  <ul>
-    {% for meal in meal_list %}
-      <li>{{ meal.food_name }} - ${{ meal.price }}</li>
-    {% endfor %}
-  </ul>
+<div class="menu-container">
+  
+    <div class="menu-image-container">
+      <img src="{% static 'images/meals.jpeg' %}" />
+    </div>
+  <h2 class="meal-header">Menus</h2> 
 
-  <h2>Drink Menu</h2>
-  <ul>
-    {% for drink in drink_list %}
-      <li>{{ drink.drink_name }} - ${{ drink.price }}</li>
-    {% endfor %}
-  </ul>
+  <div class="dropdowns-container"> <!-- Container to hold both dropdowns -->
+    <!-- Meal Menu Dropdown -->
+    <div class="dropdown mb-3">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="mealMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Meal Menu
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="mealMenuDropdown">
+        {% for meal in meal_list %}
+          <li><a class="dropdown-item" href="#">{{ meal.food_name }} - ${{ meal.price }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Drink Menu Dropdown -->
+    <div class="dropdown"> 
+      <button class="btn btn-primary dropdown-toggle" type="button" id="drinkMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Drink Menu
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="drinkMenuDropdown">
+        {% for drink in drink_list %}
+          <li><a class="dropdown-item" href="#">{{ drink.drink_name }} - ${{ drink.price }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
 </div>
 {% endblock %}
