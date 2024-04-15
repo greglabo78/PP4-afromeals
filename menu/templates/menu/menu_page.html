@@ -17,7 +17,7 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="mealMenuDropdown">
         {% for meal in meal_list %}
-          <li><a class="dropdown-item" href="#">{{ meal.food_name }} - ${{ meal.price }}</a></li>
+          <li><a class="dropdown-item" href="#">{{ meal.meal_name }} - ${{ meal.price }}</a></li>
         {% endfor %}
       </ul>
     </div>
