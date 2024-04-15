@@ -6,7 +6,6 @@ from django.contrib import messages
 from django.views.generic.edit import UpdateView
 from django.core.paginator import Paginator
 from datetime import datetime
-
 from .models import Booking
 from .forms import BookingForm
 
@@ -18,7 +17,7 @@ def get_user_instance(request):
     return None
 
 class Bookings(View):
-    template_name = 'bookings/bookings.html'
+    template_name = 'booking/bookings.html'
 
     def get(self, request):
         user_email = request.user.email if request.user.is_authenticated else None
