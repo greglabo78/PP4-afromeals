@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.views import View
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import UpdateView
 from django.core.paginator import Paginator
 from datetime import datetime
@@ -34,40 +35,40 @@ class Bookings(View):
             return redirect('confirmed')  # Assuming 'confirmed' is the name of a URL pattern
         return render(request, self.template_name, {'booking_form': booking_form})
 
-# class Confirmed(View):
-#     template_name = 'booking/confirmed.html'
+class Confirmed(View):
+    template_name = 'booking/confirmed.html'
 
-#     def get(self, request):
-#         return render(request, self.template_name)
+    def get(self, request):
+        return render(request, self.template_name)
 
-# class BookingList(View):
-#     template_name = 'booking/booking_list.html'
-#     paginate_by = 4
+class BookingList(View):
+    template_name = 'booking/booking_list.html'
+    paginate_by = 4
 
-#     def get(self, request):
-#         today = datetime.now().date()
-#         bookings = Booking.objects.filter(user=request.user, requested_date__gte=today).order_by('-created_date')
-#         paginator = Paginator(bookings, self.paginate_by)
-#         page_number = request.GET.get('page')
-#         booking_page = paginator.get_page(page_number)
-#         return render(request, self.template_name, {'booking_page': booking_page})
+    def get(self, request):
+        today = datetime.now().date()
+        bookings = Booking.objects.filter(user=request.user, requested_date__gte=today).order_by('-created_date')
+        paginator = Paginator(bookings, self.paginate_by)
+        page_number = request.GET.get('page')
+        booking_page = paginator.get_page(page_number)
+        return render(request, self.template_name, {'booking_page': booking_page})
 
 # # View to edit an existing booking
-# class EditBooking(SuccessMessageMixin, UpdateView):
-#     model = Booking
-#     form_class = BookingForm
-#     template_name = 'booking/edit_booking.html'
-#     success_message = 'Booking has been updated.'
+class EditBooking(SuccessMessageMixin, UpdateView):
+    model = Booking
+    form_class = BookingForm
+    template_name = 'booking/edit_booking.html'
+    success_message = 'Booking has been updated.'
 
-#     def get_success_url(self):
-#         return reverse('booking_list')  # Assuming 'booking_list' is the name of a URL pattern
+    def get_success_url(self):
+        return reverse('booking_list')  # Assuming 'booking_list' is the name of a URL pattern
 
 # # Function-based view to handle booking cancellation
-# def cancel_booking(request, pk):
-#     booking = get_object_or_404(Booking, pk=pk)
-#     if request.method == 'POST':
-#         booking.delete()
-#         messages.success(request, "Booking cancelled")
-#         return redirect('booking_list')
-#     return render(request, 'booking/cancel_booking.html', {'booking': booking})
+def cancel_booking(request, pk):
+    booking = get_object_or_404(Booking, pk=pk)
+    if request.method == 'POST':
+        booking.delete()
+        messages.success(request, "Booking cancelled")
+        return redirect('booking_list')
+    return render(request, 'booking/cancel_booking.html', {'booking': booking})
 
