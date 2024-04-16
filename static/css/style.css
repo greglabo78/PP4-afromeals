@@ -238,3 +238,54 @@ body {
     
     
 }
+
+/* ------------------ login Page */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items:normal;
+    width: 100%;
+}
+
+
+
+
+.login-image-container {
+    width: 100%; 
+    overflow:hidden;
+    height: 400px;
+}
+
+.login-image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    
+} 
+
+/* -------------------- signup page */
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items:normal;
+    width: 100%;
+}
+
+.signup-image-container {
+    width: 100%; 
+    overflow:hidden;
+    height: 400px;
+}
+
+.signup-image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    
+} 
+
+
+
