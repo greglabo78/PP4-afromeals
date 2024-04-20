@@ -219,7 +219,7 @@ body {
 .dropdown {
     position: relative; /* Keep as relative or static if flex sizing is used */
     flex: 1; 
-    margin: 0 10px; /
+    margin: 0 10px; 
 }
 
 #mealMenuDropdown, #drinkMenuDropdown {
@@ -286,6 +286,73 @@ body {
     object-fit: cover;
     
 } 
+
+/* --------------- media queries for large desktop screens wider than 1200px */
+@media (min-width: 1200px) {
+    .brand, .masthead, .meal-header, .dropdown {
+        font-size: 1.6rem; /* Increase font size for large desktops */
+    }
+    .card, .menu-container, .login-container, .signup-container {
+        padding: 20px; /* More padding for larger screens */
+    }
+}
+
+
+/* ------------------- media queries for medium desktops and laptops screens between 768px and 1199px  */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .brand, .masthead, .meal-header, .dropdown {
+        font-size: 1.4rem; /* Suitable font size for laptops */
+    }
+    .card, .menu-container, .login-container, .signup-container {
+        padding: 15px;
+    }
+    .masthead {
+        height: 40vh; /* Adjusting masthead height for better visibility */
+    }
+}
+
+
+/* --------------------- tablets screens between 481px and 767px */
+@media (min-width: 481px) and (max-width: 767px) {
+    .brand, .masthead, .meal-header, .dropdown {
+        font-size: 1.2rem; /* Slightly smaller font for tablets */
+    }
+    .card, .menu-container, .login-container, .signup-container {
+        padding: 10px;
+    }
+    .masthead {
+        height: 30vh;
+    }
+}
+
+/* ------------------------ mobile devices very small devices typically phones screens up to 480px wide  */
+@media (max-width: 480px) {
+    .brand, .masthead, .meal-header, .dropdown {
+        font-size: 1rem; /* Smaller font size for mobile devices */
+    }
+    .card, .menu-container, .login-container, .signup-container {
+        padding: 5px;
+    }
+    .masthead {
+        height: 25vh;
+    }
+    .meal-header {
+        margin-top: 50vh; /* Adjusting for smaller screens */
+        transform: translateY(-800%) translateX(-0%);
+    }
+    .dropdown {
+        flex-direction: column; /* Stack dropdowns vertically on small screens */
+    }
+    #mealMenuDropdown, #drinkMenuDropdown {
+        width: 90%; /* Full width dropdowns */
+        position: static; /* Normal flow */
+        margin-bottom: 10px;
+    }
+}
+
+
+
 
 
 
